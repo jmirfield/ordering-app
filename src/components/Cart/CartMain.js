@@ -3,12 +3,12 @@ import Modal from '../UI/Modal'
 import CartContext from '../../store/cart-context'
 import CartItem from './CartItem'
 
-import styles from './Cart.module.css'
+import styles from './CartMain.module.css'
 
 const Cart = props => {
     const cartCtx = useContext(CartContext)
 
-    const totalAmount = `$${Math.abs(cartCtx.totalAmount.toFixed(2))}`
+    const totalAmount = `$${Math.abs(cartCtx.totalAmount).toFixed(2)}`
     const hasItems = cartCtx.items.length > 0
 
     const cartItemRemoveHandler = (id) => {
