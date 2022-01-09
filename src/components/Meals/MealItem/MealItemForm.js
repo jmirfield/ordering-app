@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-
+import Button from 'react-bootstrap/Button'
 import Input from '../../UI/Input'
 import styles from './MealItemForm.module.css'
 
@@ -33,7 +33,7 @@ const MealItemForm = props => {
                     defaultValue: '1'
                 }}
             />
-            <button type='submit'>+ Add</button>
+            <Button variant='primary' type='submit'>+ Add</Button>{' '}
             {!isFormValid && <p>Please enter a valid amount (1-5)</p>}
         </form>
     )

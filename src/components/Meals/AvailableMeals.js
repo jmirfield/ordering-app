@@ -1,40 +1,48 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import MealItem from './MealItem/MealItem';
 import Card from '../UI/Card';
 
 import styles from './AvailableMeals.module.css'
 
-const DUMMY_MEALS = [
-    {
-        id: 'm1',
-        name: 'Sushi',
-        description: 'Finest fish and veggies',
-        price: 22.99,
-    },
-    {
-        id: 'm2',
-        name: 'Schnitzel',
-        description: 'A german specialty!',
-        price: 16.99,
-    },
-    {
-        id: 'm3',
-        name: 'Barbecue Burger',
-        description: 'American, raw, meaty',
-        price: 12.99,
-    },
-    {
-        id: 'm4',
-        name: 'Green Bowl',
-        description: 'Healthy...and green...',
-        price: 18.99,
-    },
-];
-
 const AvailableMeals = props => {
 
-    const mealsList = DUMMY_MEALS.map(meal => {
+    const [meals, setMeals] = useState([])
+    const [loading, setLoading] = useState(true)
+    const [error, setError] = useState({ bool: false, message: '' })
+    const { bool: errorStatus, message: errorMessage } = error
+
+    useEffect(() => {
+        getMeals()
+    }, [])
+
+    const getMeals = async () => {
+        try {
+            const response = await fetch('https://ordering-app-18390-default-rtdb.firebaseio.com/meals/-Ms_RBD7c6yYxAGJhmMo.json')
+            const jsonData = await response.json()
+            setMeals(jsonData)
+            setLoading(false)
+        } catch (err) {
+            setError({ bool: true, message: err.message })
+        }
+    }
+
+    if (errorStatus) {
+        return (
+            <section className={styles.MealsError}>
+                <p>{errorMessage}</p>
+            </section>
+        )
+    }
+
+    if (loading) return (
+        <section className={styles.MealsLoading}>
+            <p>Loading...</p>
+        </section>
+    )
+
+
+    const mealsList = meals.map(meal => {
         return <MealItem
             name={meal.name}
             description={meal.description}

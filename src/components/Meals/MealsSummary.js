@@ -1,19 +1,22 @@
 import React from 'react'
+import Card from 'react-bootstrap/Card'
 import styles from './MealsSummary.module.css'
 
 const MealsSummary = () => {
     return (
-        <section className={styles.summary}>
+        <Card style={{width: '40rem'}} className={`mx-auto jumbotron well rounded-3 bg-dark border border-light text-white ${styles.summary}`}>
             <h2>Delicious Food, delivered to you</h2>
-            <p>
-                Choose your favorite meal from our broad selection of available meals
-                and enjoy a delicious lunch or dinner at home.
-            </p>
-            <p>
-                All our meals are cooked with high-quality ingredients, just-in-time and
-                of course by experienced chefs!
-            </p>
-        </section>
+            <Card.Body>
+                <p>
+                    Choose your favorite meal from our broad selection of available meals
+                    and enjoy a delicious lunch or dinner at home.
+                </p>
+                <p>
+                    All our meals are cooked with high-quality ingredients, just-in-time and
+                    of course by experienced chefs!
+                </p>
+            </Card.Body>
+        </Card>
     )
 }
 
