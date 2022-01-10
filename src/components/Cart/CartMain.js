@@ -4,8 +4,9 @@ import CartContext from '../../store/cart-context'
 import CartItem from './CartItem'
 import Checkout from './Checkout'
 
-import styles from './CartMain.module.css'
-
+import Button from 'react-bootstrap/Button'
+import styles from './Cart.module.css'
+ 
 const Cart = props => {
     const cartCtx = useContext(CartContext)
     const [checkout, setCheckout] = useState(false)
