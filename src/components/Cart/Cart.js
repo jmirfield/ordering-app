@@ -6,7 +6,7 @@ import Checkout from './Checkout'
 
 import Button from 'react-bootstrap/Button'
 import styles from './Cart.module.css'
-
+ 
 const Cart = props => {
     const cartCtx = useContext(CartContext)
     const [checkout, setCheckout] = useState(false)
