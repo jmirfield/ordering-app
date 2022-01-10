@@ -2,7 +2,7 @@
     text-align: right;
   }
   
-  .form button {
+  /* .form button {
     font: inherit;
     cursor: pointer;
     background-color: #8a2b06;
@@ -17,4 +17,4 @@
   .form button:active {
     background-color: #641e03;
     border-color: #641e03;
-  }
+  } */

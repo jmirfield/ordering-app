@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import styles from './Modal.module.css'
+import styles from './CartModal.module.css'
 
 const Backdrop = (props) => {
     return <div className={styles.backdrop} onClick={props.onClick} />
@@ -17,7 +16,7 @@ const ModalOverlay = (props) => {
 
 const portalElement = document.getElementById('overlays')
 
-const Modal = props => {
+const CartModal = props => {
     return (
         <React.Fragment>
             {ReactDOM.createPortal(<Backdrop onClick={props.onClick}/>, portalElement)}
@@ -26,4 +25,4 @@ const Modal = props => {
     )
 }
 
-export default Modal
+export default CartModal
