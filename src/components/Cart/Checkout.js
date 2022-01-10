@@ -63,8 +63,8 @@ const Checkout = (props) => {
                 {!formInputsValid.city && <p className={classes.invalid}>Please enter a valid city!</p>}
             </div>
             {<input autoComplete="on" style={{ display: 'none' }}/> /*Hack to disable autocomplete*/}
-            <Button type='button' variant='secondary' className='mt-2' onClick={props.onClose}>Close</Button>
-            <Button type='submit' variant={'success'} className={`ms-1 mt-2`}>Confirm</Button>
+            <Button type='button' variant='secondary' className='mt-3' onClick={props.onClose}>Close</Button>
+            <Button type='submit' variant={'success'} className={`ms-1 mt-3`}>Confirm</Button>
         </form>
     )
 }
